@@ -5,7 +5,7 @@
 
 export const reverseString = (input) => {
     let forward = [];
-    forward = input.split("");      //this function doesn't work as intended
+    forward = input.split("");      
     let backward = forward.reverse();
     let output = backward.join("");
     return output;
