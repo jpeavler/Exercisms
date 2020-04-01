@@ -16,7 +16,7 @@ export const abilityModifier = (baseStat) => {
 };
 
 export class Character {
-  static rollAbility() {
+  static rollAbility()  {
     let die1 = Math.floor(Math.random() * 6) + 1;
     let die2 = Math.floor(Math.random() * 6) + 1;
     let die3 = Math.floor(Math.random() * 6) + 1;
@@ -40,12 +40,12 @@ export class Character {
     return total;
   }
   constructor(){
-    this._strength = this.rollAbility();    //need to resolve rollAbility()
-    this._dexterity = this.rollAbility();
-    this._constitution = this.rollAbility();
-    this._intelligence = this.rollAbility();
-    this._wisdom = this.rollAbility();
-    this._charisma = this.rollAbility();
+    this._strength = this.rollAbility;    //need to resolve rollAbility
+    this._dexterity = this.rollAbility;
+    this._constitution = this.rollAbility;
+    this._intelligence = this.rollAbility;
+    this._wisdom = this.rollAbility;
+    this._charisma = this.rollAbility;
     this._hitpoints = abilityModifier(this._constitution);
   }
 
