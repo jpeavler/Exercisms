@@ -40,13 +40,13 @@ export class Character {
     return total;
   }
   constructor(){
-    this._strength = this.rollAbility;    //need to resolve rollAbility
-    this._dexterity = this.rollAbility;
-    this._constitution = this.rollAbility;
-    this._intelligence = this.rollAbility;
-    this._wisdom = this.rollAbility;
-    this._charisma = this.rollAbility;
-    this._hitpoints = abilityModifier(this._constitution);
+    this._strength = Character.rollAbility(); 
+    this._dexterity = Character.rollAbility();
+    this._constitution = Character.rollAbility();
+    this._intelligence = Character.rollAbility();
+    this._wisdom = Character.rollAbility();
+    this._charisma = Character.rollAbility();
+    this._hitpoints = abilityModifier(this._constitution) + 10;
   }
 
   get strength() {
