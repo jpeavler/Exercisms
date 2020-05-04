@@ -15,15 +15,17 @@ export class Matrix {
         rowArray[j][k] = parseInt(rowArray[j][k]);
       }
     }
-    console.log(rowArray);
     return rowArray;
   }
   static generateCol = (string) => {
     let rowArray = Matrix.generateRows(string);  //start by using the rowArray
     let colArray = [];
-    for(let i; i < rowArray.length; i++){
-      for(let j; j < rowArray[i].length; j++){
-        
+    let width = rowArray.length;                 //is width of colArray (height of rowArray)
+    let height = rowArray[0] instanceof Array? rowArray[0].length : 0;  //instanceof tells us whether there is an array there to read
+    for(let i = 0; i < height; i++){
+      colArray[i] = [];
+      for(let j = 0; j < width; j++){
+        colArray[i][j] = rowArray[j][i];
       }
     }
     return colArray;
