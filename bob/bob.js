@@ -5,14 +5,14 @@
 
 export const hey = (message) => {
   let bobResponds;
-  if(!/\d/.test(message) && !/[a-zA-Z]/.test(message)){
+  if(!/[0-9]/.test(message) && !/[a-zA-Z]/.test(message) && !/[?]/.test(message)){
     bobResponds = 'Fine. Be that way!'
   }
-  else if(message[message.length -1] == '?' && message == message.toUpperCase()) {
+  else if(message.endsWith('?') && message == message.toUpperCase() && /[A-Z]/.test(message)) {
     bobResponds = 'Calm down, I know what I\'m doing!'
-  }else if(message[message.length - 1] == '?') {
+  }else if(message.trimEnd().endsWith('?')) {
     bobResponds = 'Sure.';
-  }else if(message == message.toUpperCase()) {
+  }else if(message == message.toUpperCase() && /[a-zA-Z]/.test(message)) {
     bobResponds = 'Whoa, chill out!';
   }else{
     bobResponds = 'Whatever.';
