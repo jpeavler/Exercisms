@@ -4,9 +4,12 @@
 //
 
 export const reverseString = (input) => {
-    let forward = [];
-    forward = input.split("");      
-    let backward = forward.reverse();
+    let forward = input.split("");
+    let backward = [];
+    while(forward.length > 0){
+        backward.push(forward.pop());
+    }
+    //let backward = forward.reverse();
     let output = backward.join("");
     return output;
 };
