@@ -4,8 +4,9 @@
 //
 
 export const countWords = (string) => {
-  let lettersAndNums = string.replace(/\W/g, ' ');
-  let stringArr = lettersAndNums.toLowerCase().split(/[\s\,]/); //splits input into an array
+  let lettersAndNums = string.replace(/[#.:&@$%^!]/g, '');      //removes several non alphanumerics from input
+  let noQuotes = lettersAndNums.replace(/\s'|'\s/g, ' ');   //removes single quotation marks without removing apostrophe
+  let stringArr = noQuotes.toLowerCase().split(/[\s\,]/); //splits input into an array
   let removedBlanks = stringArr.filter(function (el) {  //removes all blank values in array
     return el != "";
   });
