@@ -4,9 +4,12 @@
 //
 
 export const countWords = (string) => {
-  let stringArr = string.split(' ');
-  let countedWords = stringArr.reduce(function (allWords, word) {
-    if(word in allWords) {
+  let stringArr = string.split(/[\s\,]/); //splits input into an array
+  let removedBlanks = stringArr.filter(function (el) {  //removes all blank values in array
+    return el != "";
+  });
+  let countedWords = removedBlanks.reduce(function (allWords, word) { //creates object that counts freqency of
+    if(word in allWords) {                                            //each word
       allWords[word]++;
     }else {
       allWords[word] = 1;
