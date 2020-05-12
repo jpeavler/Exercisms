@@ -4,7 +4,8 @@
 //
 
 export const countWords = (string) => {
-  let stringArr = string.toLowerCase().split(/[\s\,]/); //splits input into an array
+  let lettersAndNums = string.replace(/\W/g, ' ');
+  let stringArr = lettersAndNums.toLowerCase().split(/[\s\,]/); //splits input into an array
   let removedBlanks = stringArr.filter(function (el) {  //removes all blank values in array
     return el != "";
   });
