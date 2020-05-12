@@ -3,6 +3,15 @@
 // convenience to get you started writing code faster.
 //
 
-export const countWords = () => {
-  throw new Error("Remove this statement and implement this function");
+export const countWords = (string) => {
+  let stringArr = string.split(' ');
+  let countedWords = stringArr.reduce(function (allWords, word) {
+    if(word in allWords) {
+      allWords[word]++;
+    }else {
+      allWords[word] = 1;
+    }
+    return allWords;
+  }, {});
+  return countedWords;
 };
