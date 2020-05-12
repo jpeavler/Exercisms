@@ -6,9 +6,10 @@
 export const transform = (old) => {
   let shiny = {};
   Object.entries(old).forEach(([key, value]) => {
-    console.log(`${key}, ${value}`);
-    let low = value[0].toLowerCase();
-    shiny[low] = parseInt(key);
+    value.forEach((val) => {
+      let low = val.toLowerCase();
+      shiny[low] = parseInt(key);
+    });
   });
   return shiny;
 };
