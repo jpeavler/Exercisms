@@ -28,9 +28,7 @@ export class LinkedList {
     let pushedNode = new Node(value, this._last, null);
     if(this._count == 0) {
       this._first = pushedNode;
-      console.log("Linked List first: " ,this._first);
       this._last = pushedNode;
-      console.log("Linked List last: " ,this._last);
     } else {
       pushedNode.prev = this._last;
       this._last.next = pushedNode;
@@ -53,7 +51,16 @@ export class LinkedList {
   }
 
   shift() {
-    throw new Error("Remove this statement and implement this function");
+    let shiftedNodeValue = this._first.value;
+    if(this._count == 1) {
+      this._last = null;
+      this._first = null;
+    } else {
+      this._first = this._first.next;
+      this._first.prev = null;
+    }
+    this._count --;
+    return shiftedNodeValue;
   }
 
   unshift() {
