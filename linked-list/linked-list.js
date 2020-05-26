@@ -30,7 +30,7 @@ export class LinkedList {
       this._first = pushedNode;
       this._last = pushedNode;
     } else {
-      pushedNode.prev = this._last;
+      //pushedNode.prev = this._last;
       this._last.next = pushedNode;
       this._last = pushedNode;
     }
@@ -63,8 +63,17 @@ export class LinkedList {
     return shiftedNodeValue;
   }
 
-  unshift() {
-    throw new Error("Remove this statement and implement this function");
+  unshift(value) {
+    let unshiftedNode = new Node(value, null, this._first);
+    if(this._count == 0) {
+      this._first = unshiftedNode;
+      this._last = unshiftedNode;
+    } else {
+      //unshiftedNode.next = this._first;
+      this._first.prev = unshiftedNode;
+      this._first = unshiftedNode;
+    }
+    this._count ++;
   }
 
   delete() {
