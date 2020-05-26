@@ -76,8 +76,29 @@ export class LinkedList {
     this._count ++;
   }
 
-  delete() {
-    throw new Error("Remove this statement and implement this function");
+  delete(value) {
+    let pointer = this._first;
+    while(pointer.value != value && pointer.next != null) {
+      pointer = pointer.next;
+    }
+    if(pointer.value != value) {
+      return false;
+    }
+    if(this._count == 1){
+      this._last = null;
+      this._first = null;
+    } else if(pointer == this._first) {
+      this._first = this._first.next;
+      this._first.prev = null;
+    } else if(pointer == this._last) {
+      this._last = this._last.prev;
+      this._last.next = null;
+    } else {
+      pointer.prev.next = pointer.next;
+      pointer.next.prev = pointer.prev;
+    }
+    this._count --;
+    return true;
   }
 
   count() {
