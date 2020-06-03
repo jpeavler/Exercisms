@@ -7,9 +7,10 @@ export const findAnagrams = (word, wordList) => {
   let anagramList = wordList.filter((currentWord) => {
     if(currentWord.length != word.length) {return false}
     if(currentWord.toLowerCase() == word.toLowerCase()) {return false}
-    let wordArray = word.toLowerCase().split("");
+    let wordArray = word.toLowerCase().split("").sort();
+    let currentArray = currentWord.toLowerCase().split("").sort();
     for(let i = 0; i < word.length; i ++) {
-      if(currentWord.toLowerCase().indexOf(wordArray[i]) == -1) {return false}
+      if(wordArray[i] != currentArray[i]) {return false}
     }
     return true //Need to add extra conditions
   });
