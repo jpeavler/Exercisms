@@ -8,7 +8,7 @@ const findFactors = (num) => {    //efficiently finds all factors of a number. O
   for (let i = 1; i*i < num; i++) {
     if(num % i == 0) {
       factorList.push(i);
-      factorList.push(num/i);
+      if(num/i != i) {factorList.push(num/i);}
     }
   }
   return factorList;
