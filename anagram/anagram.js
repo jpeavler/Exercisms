@@ -6,10 +6,11 @@
 export const findAnagrams = (word, wordList) => {
   let anagramList = wordList.filter((currentWord) => {
     if(currentWord.length != word.length) {return false}
-    let wordArray = word.split("");
-    wordArray.forEach((letter) => {
-      if()
-    })
+    let wordArray = word.toLowerCase().split("");
+    for(let i = 0; i < word.length; i ++) {
+      if(currentWord.toLowerCase().indexOf(wordArray[i]) == -1) {return false}
+    }
     return true //Need to add extra conditions
-  })
+  });
+  return anagramList;
 }
