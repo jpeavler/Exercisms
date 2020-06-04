@@ -5,15 +5,15 @@ describe('Acronyms are produced from', () => {
     expect(parse('Portable Network Graphics')).toEqual('PNG');
   });
 
-  xtest('other title cased phrases', () => {
+  test('other title cased phrases', () => {
     expect(parse('Ruby on Rails')).toEqual('ROR');
   });
 
-  xtest('phrases with punctuation', () => {
+  test('phrases with punctuation', () => {
     expect(parse('First In, First Out')).toEqual('FIFO');
   });
 
-  xtest('phrases with all uppercase words', () => {
+  test('phrases with all uppercase words', () => {
     expect(parse('GNU Image Manipulation Program')).toEqual('GIMP');
   });
 
@@ -21,7 +21,7 @@ describe('Acronyms are produced from', () => {
     expect(parse('Complementary metal-oxide semiconductor')).toEqual('CMOS');
   });
 
-  xtest('long phrases', () => {
+  test('long phrases', () => {
     expect(parse('Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me'))
       .toEqual('ROTFLSHTMDCOALM');
   });
@@ -30,7 +30,7 @@ describe('Acronyms are produced from', () => {
     expect(parse('Something - I made up from thin air')).toEqual('SIMUFTA');
   });
 
-  xtest('phrases with apostrophes', () => {
+  test('phrases with apostrophes', () => {
     expect(parse("Halley's Comet")).toEqual('HC');
   });
 
