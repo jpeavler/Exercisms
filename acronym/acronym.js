@@ -4,10 +4,11 @@
 //
 
 export const parse = (phrase) => {
-  let phraseArray = phrase.split(' ');
+  let regex = /[_]/g;
+  let phraseArray = phrase.replace(regex, "").split(' ');
   let acronym = "";
   phraseArray.forEach(word => {
-    acronym = acronym + word[0];
+    if(/[a-zA-Z]/.test(word[0])) {acronym = acronym + word[0];}
   })
   return acronym.toUpperCase();
 };

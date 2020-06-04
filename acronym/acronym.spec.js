@@ -17,7 +17,7 @@ describe('Acronyms are produced from', () => {
     expect(parse('GNU Image Manipulation Program')).toEqual('GIMP');
   });
 
-  xtest('phrases with punctuation without whitespace', () => {
+  test('phrases with punctuation without whitespace', () => {
     expect(parse('Complementary metal-oxide semiconductor')).toEqual('CMOS');
   });
 
@@ -26,7 +26,7 @@ describe('Acronyms are produced from', () => {
       .toEqual('ROTFLSHTMDCOALM');
   });
 
-  xtest('phrases with consecutive delimiters', () => {
+  test('phrases with consecutive delimiters', () => {
     expect(parse('Something - I made up from thin air')).toEqual('SIMUFTA');
   });
 
@@ -34,7 +34,7 @@ describe('Acronyms are produced from', () => {
     expect(parse("Halley's Comet")).toEqual('HC');
   });
 
-  xtest('phrases with underscore emphasis', () => {
+  test('phrases with underscore emphasis', () => {
     expect(parse('The Road _Not_ Taken')).toEqual('TRNT');
   });
 });
