@@ -9,11 +9,20 @@ const findHighest = (list) => {
   });
   return highScore;
 }
+const findHighestThree = (list) => {
+  let topThree = Object.assign([], list); //Allows me to copy list by value and not by reference
+  topThree = topThree.sort((a, b) => b - a);
+  while(topThree.length > 3) {
+    topThree.pop();
+  }
+  return topThree;
+}
 export class HighScores {
   constructor(scores) {
     this._scores = scores;
     this._latest = scores[scores.length -1];
     this._personalBest = findHighest(scores);
+    this._personalTopThree = findHighestThree(scores);
   }
 
   get scores() {
@@ -29,6 +38,6 @@ export class HighScores {
   }
 
   get personalTopThree() {
-    throw new Error("Remove this statement and implement this function");
+    return this._personalTopThree;
   }
 }
