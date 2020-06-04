@@ -9,7 +9,9 @@ export const isIsogram = (phrase) => {
   let talliedPhrase = phraseArray.reduce((tally, letter) => {
     tally[letter] = (tally[letter] || 0) + 1;
     return tally;
-  }, {})
+  }, {});
+  delete talliedPhrase["-"];
+  delete talliedPhrase[" "];
   let countArray = Object.values(talliedPhrase);
   for(let i = 0; i < countArray.length; i++){
     if(countArray[i] > 1) {return false}
