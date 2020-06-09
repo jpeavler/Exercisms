@@ -16,15 +16,16 @@ export class Element {
 export class List {
 
   constructor(array) {
+    this._head = null;
+    this._tail = null;
+    this._count = 0;
     if(array) {
-
-    } else {
-      this._count = 0;
-      this._head = null;
-      this._tail = null;
+      array.forEach((val) => {
+        let nextElement = new Element(val);
+        this.add(nextElement);
+      });
     }
   }
-
   add(nextElement) {
     nextElement.next = this._head;
     this._head = nextElement;
