@@ -2,7 +2,7 @@
 // This is only a SKELETON file for the 'Simple Linked List' exercise. It's been provided as a
 // convenience to get you started writing code faster.
 //
-class Element {
+export class Element {
   constructor(value) {
     this._value = value;
   }
