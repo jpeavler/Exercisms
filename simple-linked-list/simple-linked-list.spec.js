@@ -5,11 +5,11 @@ describe('Element class', () => {
     const element = new Element(1);
     expect(element.value).toEqual(1);
   });
-  xtest('value reflects constructor arg', () => {
+  test('value reflects constructor arg', () => {
     const element = new Element(2);
     expect(element.value).toEqual(2);
   });
-  xtest('has null for next by default', () => {
+  test('has null for next by default', () => {
     const element = new Element(1);
     expect(element.next).toEqual(null);
   });
