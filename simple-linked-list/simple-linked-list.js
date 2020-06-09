@@ -2,23 +2,40 @@
 // This is only a SKELETON file for the 'Simple Linked List' exercise. It's been provided as a
 // convenience to get you started writing code faster.
 //
+class Element {
+  constructor(value) {
+    this._value = value;
+  }
+  get value() {return this._value}
+  get next() {return this._next}
+  set value(value) {this._value = value}
+  set next(next) {this._next = next}
+}
 
 export class SimpleLinkedList {
 
-  constructor() {
-    throw new Error("Remove this statement and implement this function");
+  constructor(array) {
+    this._count = 0;
+    this._head = null;
+    this._tail = null;
   }
 
   add(nextValue) {
-    throw new Error("Remove this statement and implement this function");
+    let addedNode = new Element(nextValue);
+    addedNode.next = this._head;
+    this._head = addedNode;
+    if(this._count == 0) {
+      this._tail = addedNode;
+    }
+    this._count++;
   }
 
   get length() {
-    throw new Error("Remove this statement and implement this function");
+    return this._count;
   }
 
   get head() {
-    throw new Error("Remove this statement and implement this function");
+    return this._head;
   }
 
   toArray() {
