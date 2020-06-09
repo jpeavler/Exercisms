@@ -50,7 +50,13 @@ export class List {
     return listToArray;
   }
   reverse() {
-    throw new Error("Remove this statement and implement this function");
+    let listToArray = this.toArray();
+    let pointer = this._head;
+    for(let i = 0; i < this._count; i++) {
+      pointer.value = listToArray.pop();
+      pointer = pointer.next;
+    }
+    return this;
   }
 }
 
