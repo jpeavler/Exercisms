@@ -9,24 +9,27 @@ export class Element {
   }
   get value() {return this._value}
   get next() {return this._next}
-  set value(value) {this._value = value}
-  set next(next) {this._next = next}
+  set value(val) {this._value = val}
+  set next(nex) {this._next = nex}
 }
 
-export class SimpleLinkedList {
+export class List {
 
   constructor(array) {
-    this._count = 0;
-    this._head = null;
-    this._tail = null;
+    if(array) {
+
+    } else {
+      this._count = 0;
+      this._head = null;
+      this._tail = null;
+    }
   }
 
-  add(nextValue) {
-    let addedNode = new Element(nextValue);
-    addedNode.next = this._head;
-    this._head = addedNode;
+  add(nextElement) {
+    nextElement.next = this._head;
+    this._head = nextElement;
     if(this._count == 0) {
-      this._tail = addedNode;
+      this._tail = nextElement;
     }
     this._count++;
   }
