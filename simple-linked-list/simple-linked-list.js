@@ -34,22 +34,23 @@ export class List {
     }
     this._count++;
   }
-
   get length() {
     return this._count;
   }
-
   get head() {
     return this._head;
   }
-
   toArray() {
-    throw new Error("Remove this statement and implement this function");
+    let listToArray = []
+    let pointer = this._head;
+    for(let i = 0; i < this._count; i++) {
+      listToArray.push(pointer.value);
+      pointer = pointer.next;
+    }
+    return listToArray;
   }
-
   reverse() {
     throw new Error("Remove this statement and implement this function");
   }
-
 }
 
