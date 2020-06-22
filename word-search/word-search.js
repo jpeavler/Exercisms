@@ -8,8 +8,24 @@ class WordSearch {
     this._grid = grid;
   }
 
-  find() {
-    throw new Error("Remove this statement and implement this function");
+  find(findList) {
+    let result = {};
+    findList.forEach((word) => {
+      let coordinates;
+      for(let i = 0; i < this._grid.length; i++) {
+        for(let j = 0; j < this._grid[i].length; j++) {
+          if(word[0] == this._grid[i][j]) {
+            let checkRight = this._grid[i].slice(j);
+            if(checkRight.includes(word)){
+              coordinates = {"end": [i + 1, j + word.length], "start": [i + 1, j + 1]};
+            }
+          }
+        }
+      }
+      result[word] = coordinates;
+      console.log(result);
+    });
+    return result;
   }
 }
 

@@ -9,14 +9,14 @@ describe('single line grids', () => {
     expect(wordSearch instanceof WordSearch).toEqual(true);
   });
 
-  xtest('can accept a target search word', () => {
+  test('can accept a target search word', () => {
     const grid = ['jefblpepre'];
     const wordSearch = new WordSearch(grid);
 
     expect(wordSearch.find(['glasnost'])).toEqual({ glasnost: undefined });
   });
 
-  xtest('should locate a word written left to right', () => {
+  test('should locate a word written left to right', () => {
     const grid = ['clojurermt'];
     const expectedResults = {
       clojure: {
@@ -29,7 +29,7 @@ describe('single line grids', () => {
     expect(wordSearch.find(['clojure'])).toEqual(expectedResults);
   });
 
-  xtest('can locate a left to right word in a different position', () => {
+  test('can locate a left to right word in a different position', () => {
     const grid = ['mtclojurer'];
     const expectedResults = {
       clojure: {
@@ -42,7 +42,7 @@ describe('single line grids', () => {
     expect(wordSearch.find(['clojure'])).toEqual(expectedResults);
   });
 
-  xtest('can locate a different left to right word', () => {
+  test('can locate a different left to right word', () => {
     const grid = ['coffeelplx'];
     const expectedResults = {
       coffee: {
@@ -54,7 +54,7 @@ describe('single line grids', () => {
 
     expect(wordSearch.find(['coffee'])).toEqual(expectedResults);
   });
-  xtest('can locate that different left to right word in a different position', () => {
+  test('can locate that different left to right word in a different position', () => {
     const grid = ['xcoffeezlp'];
     const expectedResults = {
       coffee: {
@@ -69,7 +69,7 @@ describe('single line grids', () => {
 });
 
 describe('multi line grids', () => {
-  xtest('can locate a left to right word in a two line grid', () => {
+  test('can locate a left to right word in a two line grid', () => {
     const grid = [
       'jefblpepre',
       'clojurermt',
@@ -86,7 +86,7 @@ describe('multi line grids', () => {
 
     expect(wordSearch.find(['clojure'])).toEqual(expectedResults);
   });
-  xtest('can locate a left to right word in a different position in a two line grid', () => {
+  test('can locate a left to right word in a different position in a two line grid', () => {
     const grid = [
       'jefblpepre',
       'tclojurerm',
@@ -101,7 +101,7 @@ describe('multi line grids', () => {
 
     expect(wordSearch.find(['clojure'])).toEqual(expectedResults);
   });
-  xtest('can locate a left to right word in a three line grid', () => {
+  test('can locate a left to right word in a three line grid', () => {
     const grid = [
       'camdcimgtc',
       'jefblpepre',
@@ -118,7 +118,7 @@ describe('multi line grids', () => {
     expect(wordSearch.find(['clojure'])).toEqual(expectedResults);
   });
 
-  xtest('can locate a left to right word in a ten line grid', () => {
+  test('can locate a left to right word in a ten line grid', () => {
     const grid = [
       'jefblpepre',
       'camdcimgtc',
@@ -143,7 +143,7 @@ describe('multi line grids', () => {
     expect(wordSearch.find(['clojure'])).toEqual(expectedResults);
   });
 
-  xtest('can locate a left to right word in a different position in a ten line grid', () => {
+  test('can locate a left to right word in a different position in a ten line grid', () => {
     const grid = [
       'jefblpepre',
       'camdcimgtc',
@@ -167,7 +167,7 @@ describe('multi line grids', () => {
 
     expect(wordSearch.find(['clojure'])).toEqual(expectedResults);
   });
-  xtest('can locate a different left to right word in a ten line grid', () => {
+  test('can locate a different left to right word in a ten line grid', () => {
     const grid = [
       'jefblpepre',
       'camdcimgtc',
@@ -194,7 +194,7 @@ describe('multi line grids', () => {
 
 
 describe('can find multiple words', () => {
-  xtest('can find two words written left to right', () => {
+  test('can find two words written left to right', () => {
     const grid = [
       'aefblpepre',
       'camdcimgtc',
