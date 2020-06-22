@@ -15,9 +15,11 @@ class WordSearch {
       for(let i = 0; i < this._grid.length; i++) {
         for(let j = 0; j < this._grid[i].length; j++) {
           if(word[0] == this._grid[i][j]) {
-            let checkRight = this._grid[i].slice(j);
+            let checkRight = this._grid[i];
             if(checkRight.includes(word)){
               coordinates = {"end": [i + 1, j + word.length], "start": [i + 1, j + 1]};
+            } else {
+              let checkLeft;
             }
           }
         }
