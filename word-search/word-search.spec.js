@@ -378,7 +378,7 @@ describe('vertical directions', () => {
       'java',
     ])).toEqual(expectedResults);
   });
-  xtest('should locate words written bottom right to top left', () => {
+  test('should locate words written bottom right to top left', () => {
     const grid = [
       'jefblpepre',
       'camdcimgtc',

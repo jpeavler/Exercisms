@@ -51,14 +51,14 @@ class WordSearch {
                 }
               }
             }
-          } if(reversedWord[0] == this._grid[i][j]) { //Checks for words right to left, starting with the last letter
+          } if(reversedWord[0] == this._grid[i][j]) { //Checks for words right to left using the last letter
             let isHereLeft = true;
             for(let l = 1; l < word.length; l++) {
               if(reversedWord[l] != this._grid[i][j+l]) {isHereLeft = false;}
             }
             if(isHereLeft) {
               coordinates = {"end": [i + 1, j + 1], "start": [i + 1, j + word.length]}
-            } else {
+            } else {                                  //Checks for words bottom to top using the last letter
               let isHereUp = true;
               for(let n = 1; n < word.length; n++) {
                 if(this._grid[i + n] == undefined) {isHereUp = false;}
@@ -66,14 +66,23 @@ class WordSearch {
               }
               if(isHereUp) {
                 coordinates = {"end": [i + 1, j + 1], "start": [i + word.length, j + 1]}
+              } else {
+                let isHereUpLeft = true;
+                for(let p = 1; p < word.length; p++) {
+                  if(this._grid[i + p] == undefined) {isHereUpLeft = false;}
+                  else if(reversedWord[p] != this._grid[i+p][j+p]) {isHereUpLeft = false;}
+                }
+                if(isHereUpLeft) {
+                  coordinates = {"end": [i + 1, j + 1], "start": [i + word.length, j + word.length]}
+                }
               }
             }
           }
         }
       }
       result[word] = coordinates;
-      console.log(result);
     });
+    console.log(result);
     return result;
   }
 }
