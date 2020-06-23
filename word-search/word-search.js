@@ -1,9 +1,4 @@
-//
-// This is only a SKELETON file for the 'Word Search' exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
-
-const reverseString = (input) => {
+const reverseString = (input) => {    //Helper function
   let forward = input.split("");
   let backward = [];
   while(forward.length > 0){
@@ -14,8 +9,8 @@ const reverseString = (input) => {
 };
 
 class WordSearch {
-  constructor(grid) {
-    this._grid = grid;
+  constructor(grid) {                             //A grid is an array of strings. Description of end and start are not zero index based.
+    this._grid = grid;                            //Instead, both x and y coordinates start at 1.
   }
 
   find(findList) {
