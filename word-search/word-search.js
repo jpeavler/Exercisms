@@ -48,7 +48,16 @@ class WordSearch {
                 }
                 if(isHereDownRight) {
                   coordinates = {"end": [i + word.length, j + word.length], "start": [i + 1, j + 1]}
-                } 
+                } else {                          //Checks for words from top right to bottom left
+                  let isHereDownLeft = true;
+                  for(let r = 1; r < word.length; r++) {
+                    if(this._grid[i + r] == undefined) {isHereDownLeft = false;}
+                    else if(word[r] != this._grid[i+r][j -r]) {isHereDownLeft = false;}
+                  }
+                  if(isHereDownLeft) {
+                    coordinates = {"end": [i + word.length, j - word.length + 2], "start": [i + 1, j + 1]}
+                  }
+                }
               }
             }
           } if(reversedWord[0] == this._grid[i][j]) { //Checks for words right to left using the last letter
@@ -82,7 +91,6 @@ class WordSearch {
                   }
                   if(isHereUpRight) {
                     coordinates = {"end": [i + 1, j + 1], "start": [i + word.length, j - word.length + 2]}
-                    console.log("Current location with zero indexes: ", [i, j])
                   }
                 }
               }
@@ -92,7 +100,6 @@ class WordSearch {
       }
       result[word] = coordinates;
     });
-    console.log(result);
     return result;
   }
 }
