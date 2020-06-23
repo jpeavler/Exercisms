@@ -237,7 +237,7 @@ describe('different directions', () => {
 
     expect(wordSearch.find(['elixir'])).toEqual(expectedResults);
   });
-  xtest('should locate multiple words written in different horizontal directions', () => {
+  test('should locate multiple words written in different horizontal directions', () => {
     const grid = [
       'jefblpepre',
       'camdcimgtc',
