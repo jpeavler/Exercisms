@@ -48,7 +48,7 @@ class WordSearch {
                 }
                 if(isHereDownRight) {
                   coordinates = {"end": [i + word.length, j + word.length], "start": [i + 1, j + 1]}
-                }
+                } 
               }
             }
           } if(reversedWord[0] == this._grid[i][j]) { //Checks for words right to left using the last letter
@@ -66,7 +66,7 @@ class WordSearch {
               }
               if(isHereUp) {
                 coordinates = {"end": [i + 1, j + 1], "start": [i + word.length, j + 1]}
-              } else {
+              } else {                                //Checks for words from bottom right to top left
                 let isHereUpLeft = true;
                 for(let p = 1; p < word.length; p++) {
                   if(this._grid[i + p] == undefined) {isHereUpLeft = false;}
@@ -74,6 +74,16 @@ class WordSearch {
                 }
                 if(isHereUpLeft) {
                   coordinates = {"end": [i + 1, j + 1], "start": [i + word.length, j + word.length]}
+                }else {                             //Checks for words from bottom left to top right
+                  let isHereUpRight = true;
+                  for(let q = 1; q < word.length; q++) {
+                    if(this._grid[i + q] == undefined) {isHereUpRight = false;}
+                    else if(reversedWord[q] != this._grid[i+q][j-q]) {isHereUpRight = false;}
+                  }
+                  if(isHereUpRight) {
+                    coordinates = {"end": [i + 1, j + 1], "start": [i + word.length, j - word.length + 2]}
+                    console.log("Current location with zero indexes: ", [i, j])
+                  }
                 }
               }
             }
