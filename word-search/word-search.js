@@ -49,6 +49,15 @@ class WordSearch {
             }
             if(isHereLeft) {
               coordinates = {"end": [i + 1, j + 1], "start": [i + 1, j + word.length]}
+            } else {
+              let isHereUp = true;
+              for(let n = 1; n < word.length; n++) {
+                if(this._grid[i + n] == undefined) {isHereUp = false;}
+                else if(reversedWord[n] != this._grid[i+n][j]) {isHereUp = false;}
+              }
+              if(isHereUp) {
+                coordinates = {"end": [i + 1, j + 1], "start": [i + word.length, j + 1]}
+              }
             }
           }
         }
