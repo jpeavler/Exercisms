@@ -40,6 +40,15 @@ class WordSearch {
               }
               if(isHereDown) {
                 coordinates = {"end": [i + word.length, j + 1], "start": [i + 1, j + 1]};
+              } else {                            //Checks for words from top left to bottom right
+                let isHereDownRight = true;
+                for(let o = 1; o < word.length; o++) {
+                  if(this._grid[i + o] == undefined) {isHereDownRight = false;}
+                  else if(word[o] != this._grid[i+o][j+o]) {isHereDownRight = false;}
+                }
+                if(isHereDownRight) {
+                  coordinates = {"end": [i + word.length, j + word.length], "start": [i + 1, j + 1]}
+                }
               }
             }
           } if(reversedWord[0] == this._grid[i][j]) { //Checks for words right to left, starting with the last letter
