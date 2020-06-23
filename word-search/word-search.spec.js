@@ -225,7 +225,7 @@ describe('can find multiple words', () => {
 });
 
 describe('different directions', () => {
-  xtest('should locate a single word written right to left', () => {
+  test('should locate a single word written right to left', () => {
     const grid = ['rixilelhrs'];
     const expectedResults = {
       elixir: {

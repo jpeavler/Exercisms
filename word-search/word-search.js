@@ -3,6 +3,16 @@
 // convenience to get you started writing code faster.
 //
 
+const reverseString = (input) => {
+  let forward = input.split("");
+  let backward = [];
+  while(forward.length > 0){
+      backward.push(forward.pop());
+  }
+  let output = backward.join("");
+  return output;
+};
+
 class WordSearch {
   constructor(grid) {
     this._grid = grid;
@@ -14,13 +24,13 @@ class WordSearch {
       let coordinates;
       for(let i = 0; i < this._grid.length; i++) {
         for(let j = 0; j < this._grid[i].length; j++) {
-          if(word[0] == this._grid[i][j]) {
-            let checkRight = this._grid[i];
-            if(checkRight.includes(word)){
+          let checkHorizontal = this._grid[i];
+          let reversedWord = reverseString(word);
+          if(word[0] == this._grid[i][j] && checkHorizontal.includes(word)) {
               coordinates = {"end": [i + 1, j + word.length], "start": [i + 1, j + 1]};
-            } else {
-              let checkLeft;
-            }
+          } else if(reversedWord[0] == this._grid[i][j] && checkHorizontal.includes(reversedWord)) {
+              coordinates = {"end": [i + 1, j + 1], "start": [i + 1, j + word.length]}
+              console.log("Will elixir coords change?", coordinates);
           }
         }
       }
