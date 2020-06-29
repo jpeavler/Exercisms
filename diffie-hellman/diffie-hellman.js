@@ -27,6 +27,7 @@ export class DiffieHellman {
     if(priv >= this._p) {
       throw new Error("Private Key must be less than modulous parameter p");
     }
+    return this._g**priv % this._p;
   }
 
   getSharedSecret() {
