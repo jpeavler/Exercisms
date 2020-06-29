@@ -24,31 +24,31 @@ describe('diffie-hellman', () => {
     }).toThrow();
   });
 
-  xtest('throws an error if private key is negative', () => {
+  test('throws an error if private key is negative', () => {
     expect(() => {
       diffieHellman.getPublicKeyFromPrivateKey(-1);
     }).toThrow();
   });
 
-  xtest('throws an error if private key is zero', () => {
+  test('throws an error if private key is zero', () => {
     expect(() => {
       diffieHellman.getPublicKeyFromPrivateKey(0);
     }).toThrow();
   });
 
-  xtest('throws an error if private key is one', () => {
+  test('throws an error if private key is one', () => {
     expect(() => {
       diffieHellman.getPublicKeyFromPrivateKey(1);
     }).toThrow();
   });
 
-  xtest('throws an error if private key equals the modulus parameter p', () => {
+  test('throws an error if private key equals the modulus parameter p', () => {
     expect(() => {
       diffieHellman.getPublicKeyFromPrivateKey(p);
     }).toThrow();
   });
 
-  xtest('throws an error if private key is greater than the modulus parameter p', () => {
+  test('throws an error if private key is greater than the modulus parameter p', () => {
     expect(() => {
       diffieHellman.getPublicKeyFromPrivateKey(p + 1);
     }).toThrow();

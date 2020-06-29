@@ -11,17 +11,22 @@ const checkPrime = (num) => {
 export class DiffieHellman {
   constructor(p, g) {
     if(p < 1 || g >= p) {
-      throw new Error("Diffie Hellman input must be within range.")
+      throw new Error("Diffie Hellman input must be within range.");
     }
     if(!checkPrime(p) || !checkPrime(g)) {
-      throw new Error("Diffie Hellman input must be prime numbers.")
+      throw new Error("Diffie Hellman input must be prime numbers.");
     }
     this._p = p;
     this._g = g;
   }
 
-  getPublicKeyFromPrivateKey() {
-    throw new Error("Remove this statement and implement this function");
+  getPublicKeyFromPrivateKey(priv) {
+    if(priv < 2) {
+      throw new Error("Private Key must be positive and greater than one");
+    }
+    if(priv >= this._p) {
+      throw new Error("Private Key must be less than modulous parameter p");
+    }
   }
 
   getSharedSecret() {
