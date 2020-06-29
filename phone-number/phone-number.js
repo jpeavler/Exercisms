@@ -4,6 +4,11 @@
 //
 
 export const clean = (phoneNumber) => {
+  if(phoneNumber.includes("!")) {
+    throw new Error('Punctuations not permitted')
+  } else if(phoneNumber.match(/[A-Za-z]/)) {
+    throw new Error('Letters not permitted');
+  }
   let numbersOnly = phoneNumber.replace(/\D/g, "");
   if(numbersOnly.length < 10) {
     throw new Error('Incorrect number of digits');

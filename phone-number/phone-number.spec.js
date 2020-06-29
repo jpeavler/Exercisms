@@ -40,13 +40,13 @@ describe('Phone Number', () => {
       );
     });
 
-    xtest('invalid with letters', () => {
+    test('invalid with letters', () => {
       expect(() => clean('123-abc-7890')).toThrow(
         new Error('Letters not permitted')
       );
     });
 
-    xtest('invalid with punctuations', () => {
+    test('invalid with punctuations', () => {
       expect(() => clean('123-@:!-7890')).toThrow(
         new Error('Punctuations not permitted')
       );
