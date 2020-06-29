@@ -30,7 +30,7 @@ export class DiffieHellman {
     return this._g**priv % this._p;
   }
 
-  getSharedSecret() {
-    throw new Error("Remove this statement and implement this function");
+  getSharedSecret(priv, pub) {
+    return pub**priv % this._p;
   }
 }
