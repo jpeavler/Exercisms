@@ -14,27 +14,27 @@ describe('Phone Number', () => {
       expect(clean('223 456   7890   ')).toEqual('2234567890');
     });
 
-    xtest('invalid when 9 digits', () => {
+    test('invalid when 9 digits', () => {
       expect(() => clean('123456789')).toThrow(
         new Error('Incorrect number of digits')
       );
     });
 
-    xtest('invalid when 11 digits does not start with a 1', () => {
+    test('invalid when 11 digits does not start with a 1', () => {
       expect(() => clean('22234567890')).toThrow(
         new Error('11 digits must start with 1')
       );
     });
 
-    xtest('valid when 11 digits and starting with 1', () => {
+    test('valid when 11 digits and starting with 1', () => {
       expect(clean('12234567890')).toEqual('2234567890');
     });
 
-    xtest('valid when 11 digits and starting with 1 even with punctuation', () => {
+    test('valid when 11 digits and starting with 1 even with punctuation', () => {
       expect(clean('+1 (223) 456-7890')).toEqual('2234567890');
     });
 
-    xtest('invalid when more than 11 digits', () => {
+    test('invalid when more than 11 digits', () => {
       expect(() => clean('321234567890')).toThrow(
         new Error('More than 11 digits')
       );
