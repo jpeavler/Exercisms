@@ -64,13 +64,13 @@ describe('Phone Number', () => {
       );
     });
 
-    xtest('invalid if exchange code starts with 0', () => {
+    test('invalid if exchange code starts with 0', () => {
       expect(() => clean('(223) 056-7890')).toThrow(
         new Error('Exchange code cannot start with zero')
       );
     });
 
-    xtest('invalid if exchange code starts with 1', () => {
+    test('invalid if exchange code starts with 1', () => {
       expect(() => clean('(223) 156-7890')).toThrow(
         new Error('Exchange code cannot start with one')
       );
@@ -88,13 +88,13 @@ describe('Phone Number', () => {
       );
     });
 
-    xtest('invalid if exchange code starts with 0 on valid 11-digit number', () => {
+    test('invalid if exchange code starts with 0 on valid 11-digit number', () => {
       expect(() => clean('1 (223) 056-7890')).toThrow(
         new Error('Exchange code cannot start with zero')
       );
     });
 
-    xtest('invalid if exchange code starts with 1 on valid 11-digit number', () => {
+    test('invalid if exchange code starts with 1 on valid 11-digit number', () => {
       expect(() => clean('1 (223) 156-7890')).toThrow(
         new Error('Exchange code cannot start with one')
       );

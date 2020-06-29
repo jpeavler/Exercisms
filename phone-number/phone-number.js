@@ -19,5 +19,10 @@ export const clean = (phoneNumber) => {
   } else if(numbersOnly[0] == 1) {
     throw new Error('Area code cannot start with one');
   }
+  if(numbersOnly[3] == 0) {
+    throw new Error('Exchange code cannot start with zero');
+  } else if(numbersOnly[3] == 1) {
+    throw new Error('Exchange code cannot start with one');
+  }
   return numbersOnly;
 };
