@@ -11,8 +11,13 @@ export const clean = (phoneNumber) => {
     throw new Error('More than 11 digits');
   } else if(numbersOnly.length == 11 && numbersOnly[0] != 1) {
     throw new Error('11 digits must start with 1');
-  } else {
+  } else if(numbersOnly.length == 11 && numbersOnly[0] == 1){
     numbersOnly = numbersOnly.replace("1", "");
+  }
+  if(numbersOnly[0] == 0) {
+    throw new Error('Area code cannot start with zero');
+  } else if(numbersOnly[0] == 1) {
+    throw new Error('Area code cannot start with one');
   }
   return numbersOnly;
 };
