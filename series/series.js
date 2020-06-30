@@ -14,7 +14,19 @@ export class Series {
     return this._digits;
   }
 
-  slices(chunkSizes) {
-    throw new Error("Remove this statement and implement this function");
+  slices(sliceSize) {
+    if(sliceSize > this._digits.length) {
+      throw new Error("Slice size is too big.");
+    }
+    let result = [];
+    let slicedLength = this._digits.length - sliceSize + 1;
+    for(let i = 0; i < slicedLength; i++){
+      let subArray = [];
+      for(let j = 0; j < sliceSize; j++) {
+        subArray.push(this._digits[i+j]);
+      }
+      result.push(subArray);
+    }
+    return result;
   }
 }
