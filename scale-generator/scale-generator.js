@@ -30,6 +30,30 @@ export class Scale {
   }
 
   interval(intervals) {
-    throw new Error("Remove this statement and implement this function");
+    let chromeLength = 12;
+    let intLength = intervals.length;
+    let result = [];
+    if(useSharps.includes(this._tonic)) {
+      let startingIndex = allNotesWithSharp.indexOf(this._tonic);
+      let currentIndex = startingIndex;
+      result.push(allNotesWithSharp[currentIndex]);
+      for(let i = 0; i < intLength - 1; i++) {          
+          let increment;
+          (intervals[i] == "M") ? increment = 2 : increment = 1;
+          currentIndex = (currentIndex + increment) % chromeLength;
+          result.push(allNotesWithSharp[currentIndex]);
+      }
+    } else {
+      let startingIndex = allNotesWithFlat.indexOf(this._tonic);
+      let currentIndex = startingIndex;
+      result.push(allNotesWithFlat[currentIndex]);
+      for(let i = 0; i < intLength - 1; i++) {
+        let increment;
+        (intervals[i] == "M") ? increment = 2 : increment = 1;
+        currentIndex = (currentIndex + increment) % chromeLength;
+        result.push(allNotesWithFlat[currentIndex]);
+      }
+    }
+    return result;
   }
 }

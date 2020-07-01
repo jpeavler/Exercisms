@@ -14,17 +14,17 @@ describe('ScaleGenerator', () => {
   })
 
   describe('Scales with specified intervals', () => {
-    xtest('Simple major scale', () => {
+    test('Simple major scale', () => {
       const expected = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
       expect(new Scale('C').interval('MMmMMMm')).toEqual(expected)
     })
 
-    xtest('Major scale with sharps', () => {
+    test('Major scale with sharps', () => {
       const expected = ['G', 'A', 'B', 'C', 'D', 'E', 'F#']
       expect(new Scale('G').interval('MMmMMMm')).toEqual(expected)
     })
 
-    xtest('Major scale with flats', () => {
+    test('Major scale with flats', () => {
       const expected = ['F', 'G', 'A', 'Bb', 'C', 'D', 'E']
       expect(new Scale('F').interval('MMmMMMm')).toEqual(expected)
     })
