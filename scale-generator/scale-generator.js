@@ -33,7 +33,7 @@ export class Scale {
     let chromeLength = 12;
     let intLength = intervals.length;
     let result = [];
-    if(useSharps.includes(this._tonic)) {
+    if(useSharps.includes(this._tonic) || this._tonic == 'C') {
       let startingIndex = allNotesWithSharp.indexOf(this._tonic);
       let currentIndex = startingIndex;
       result.push(allNotesWithSharp[currentIndex]);
