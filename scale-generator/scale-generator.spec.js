@@ -29,17 +29,17 @@ describe('ScaleGenerator', () => {
       expect(new Scale('F').interval('MMmMMMm')).toEqual(expected)
     })
 
-    xtest('Minor scale with sharps', () => {
+    test('Minor scale with sharps', () => {
       const expected = ['F#', 'G#', 'A', 'B', 'C#', 'D', 'E']
       expect(new Scale('f#').interval('MmMMmMM')).toEqual(expected)
     })
 
-    xtest('Minor scale with flats', () => {
+    test('Minor scale with flats', () => {
       const expected = ['Bb', 'C', 'Db', 'Eb', 'F', 'Gb', 'Ab']
       expect(new Scale('bb').interval('MmMMmMM')).toEqual(expected)
     })
 
-    xtest('Dorian mode', () => {
+    test('Dorian mode', () => {
       const expected = ['D', 'E', 'F', 'G', 'A', 'B', 'C']
       expect(new Scale('d').interval('MmMMMmM')).toEqual(expected)
     })
@@ -49,22 +49,22 @@ describe('ScaleGenerator', () => {
       expect(new Scale('Eb').interval('MMmMMmM')).toEqual(expected)
     })
 
-    xtest('Lydian mode', () => {
+    test('Lydian mode', () => {
       const expected = ['A', 'B', 'C#', 'D#', 'E', 'F#', 'G#']
       expect(new Scale('a').interval('MMMmMMm')).toEqual(expected)
     })
 
-    xtest('Phrygian mode', () => {
+    test('Phrygian mode', () => {
       const expected = ['E', 'F', 'G', 'A', 'B', 'C', 'D']
       expect(new Scale('e').interval('mMMMmMM')).toEqual(expected)
     })
 
-    xtest('Locrian mode', () => {
+    test('Locrian mode', () => {
       const expected = ['G', 'Ab', 'Bb', 'C', 'Db', 'Eb', 'F']
       expect(new Scale('g').interval('mMMmMMM')).toEqual(expected)
     })
 
-    xtest('Harmonic minor', () => {
+    test('Harmonic minor', () => {
       const expected = ['D', 'E', 'F', 'G', 'A', 'Bb', 'Db']
       expect(new Scale('d').interval('MmMMmAm')).toEqual(expected)
     })
@@ -79,12 +79,12 @@ describe('ScaleGenerator', () => {
       expect(new Scale('Db').interval('MMMMMM')).toEqual(expected)
     })
 
-    xtest('Pentatonic', () => {
+    test('Pentatonic', () => {
       const expected = ['A', 'B', 'C#', 'E', 'F#']
       expect(new Scale('A').interval('MMAMA')).toEqual(expected)
     })
 
-    xtest('Enigmatic', () => {
+    test('Enigmatic', () => {
       const expected = ['G', 'G#', 'B', 'C#', 'D#', 'F', 'F#']
       expect(new Scale('G').interval('mAMMMmm')).toEqual(expected)
     })
