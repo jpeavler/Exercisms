@@ -21,5 +21,18 @@ export const encode = (toEncode) => {
 };
 
 export const decode = (toDecode) => {
-  throw new Error("Remove this statement and implement this function");
+  let decoded = "";
+  let tally = "";
+  for(let i = 0; i < toDecode.length; i++) {
+    if(toDecode[i].match(/\d/)) {
+      tally = tally.concat(toDecode[i]);
+    } else {
+      if(tally == "") {tally = "1";}
+      for(let j = 0; j < parseInt(tally); j++) {
+        decoded = decoded.concat(toDecode[i]);
+      }
+      tally = "";
+    }
+  }
+  return decoded;
 };
