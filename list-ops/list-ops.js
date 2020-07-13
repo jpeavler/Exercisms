@@ -13,8 +13,13 @@ export class List {
     return this;
   }
 
-  concat() {
-    throw new Error("Remove this statement and implement this function");
+  concat(lists) {
+    for(let i = 0; i < lists.values.length; i++) {
+      for(let j = 0; j < lists.values[i].values.length; j++) {
+        this.values.push(lists.values[i].values[j]);
+      }
+    }
+    return this;
   }
 
   filter() {
