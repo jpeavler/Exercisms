@@ -7,14 +7,14 @@ export class List {
   }
 
   append(list2) {
-    for(let i = 0; i < list2.values.length; i++) {
+    for(let i = 0; i < list2.length(); i++) {
       this.values.push(list2.values[i]);
     }
     return this;
   }
 
   concat(lists) {
-    for(let i = 0; i < lists.values.length; i++) {
+    for(let i = 0; i < lists.length(); i++) {
       for(let j = 0; j < lists.values[i].values.length; j++) {
         this.values.push(lists.values[i].values[j]);
       }
@@ -22,27 +22,34 @@ export class List {
     return this;
   }
 
-  filter(callback) {
+  filter(func) {
     let filtered = [];
-    for(let i = 0; i < this.values.length; i++) {
-      let matches = callback(this.values[i]);
-      if(matches) {
+    for(let i = 0; i < this.length(); i++) {
+      if(func(this.values[i])) {
         filtered.push(this.values[i]);
       }
     }
     return new List(filtered);
   }
 
-  map() {
-    
+  map(func) {
+    let mapped = [];
+    for(let i = 0; i < this.length(); i++) {
+      mapped.push(func(this.values[i]));
+    }
+    return new List(mapped);
   }
 
   length() {
-    throw new Error("Remove this statement and implement this function");
+    return this.values.length;
   }
 
-  foldl() {
-    throw new Error("Remove this statement and implement this function");
+  foldl(func, start) {
+    let total = start;
+    for(let i = 0; i < this.length(); i++) {
+      total = func(total, this.values[i]);
+    }
+    return total;
   }
 
   foldr() {
