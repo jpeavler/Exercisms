@@ -22,12 +22,19 @@ export class List {
     return this;
   }
 
-  filter() {
-    throw new Error("Remove this statement and implement this function");
+  filter(callback) {
+    let filtered = [];
+    for(let i = 0; i < this.values.length; i++) {
+      let matches = callback(this.values[i]);
+      if(matches) {
+        filtered.push(this.values[i]);
+      }
+    }
+    return new List(filtered);
   }
 
   map() {
-    throw new Error("Remove this statement and implement this function");
+    
   }
 
   length() {
