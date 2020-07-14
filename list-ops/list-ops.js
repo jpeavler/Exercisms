@@ -52,11 +52,20 @@ export class List {
     return total;
   }
 
-  foldr() {
-    throw new Error("Remove this statement and implement this function");
+  foldr(func, start) {
+    let total = start;
+    let reversedList = this.reverse();
+    for(let i = 0; i < this.length(); i++) {
+      total = func(total, reversedList.values[i]);
+    }
+    return total;
   }
 
   reverse() {
-    throw new Error("Remove this statement and implement this function");
+    let reversed = [];
+    for(let i = 0; i < this.length(); i++) {
+      reversed.unshift(this.values[i]);
+    }
+    return new List(reversed);
   }
 }

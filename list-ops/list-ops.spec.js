@@ -92,12 +92,12 @@ describe('folds (reduces) the given list from the left with a function', () => {
 
 
 describe('folds (reduces) the given list from the right with a function', () => {
-  xtest('empty list', () => {
+  test('empty list', () => {
     const list1 = new List();
     expect(list1.foldr((acc, el) => el / acc, 2)).toEqual(2);
   });
 
-  xtest('division of integers', () => {
+  test('division of integers', () => {
     const list1 = new List([1, 2, 3, 4]);
     expect(list1.foldr((acc, el) => el / acc, 24)).toEqual(9);
   });
@@ -105,12 +105,12 @@ describe('folds (reduces) the given list from the right with a function', () => 
 
 
 describe('reverse the elements of a list', () => {
-  xtest('empty list', () => {
+  test('empty list', () => {
     const list1 = new List();
     expect(list1.reverse().values).toEqual([]);
   });
 
-  xtest('non-empty list', () => {
+  test('non-empty list', () => {
     const list1 = new List([1, 3, 5, 7]);
     expect(list1.reverse().values).toEqual([7, 5, 3, 1]);
   });
