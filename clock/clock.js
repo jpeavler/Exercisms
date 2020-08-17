@@ -52,8 +52,17 @@ export class Clock {
     return new Clock(hrAdd, minAdd);
   }
 
-  minus() {
-    throw new Error('Remove this statement and implement this function');
+  minus(min) {
+    let minSub = this.min - min;
+    let hrSub = this.hr;
+    while(minSub < 0) {
+      minSub += 60;
+      hrSub --;
+    }
+    while(hrSub < 0) {
+      hrSub += 24;
+    }
+    return new Clock(hrSub, minSub);
   }
 
   equals() {
