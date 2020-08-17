@@ -41,8 +41,15 @@ export class Clock {
     return strHr.concat(":", strMin);
   }
 
-  plus() {
-    throw new Error('Remove this statement and implement this function');
+  plus(min) {
+    let minAdd = min + this.min;
+    let hrAdd = this.hr;
+    while(minAdd >= 60) {
+      minAdd -= 60;
+      hrAdd ++;
+    }
+    hrAdd = hrAdd % 24;
+    return new Clock(hrAdd, minAdd);
   }
 
   minus() {
