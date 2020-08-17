@@ -65,7 +65,11 @@ export class Clock {
     return new Clock(hrSub, minSub);
   }
 
-  equals() {
-    throw new Error('Remove this statement and implement this function');
+  equals(clock2) {
+    if(this.toString() === clock2.toString()) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
