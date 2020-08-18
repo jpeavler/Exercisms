@@ -22,7 +22,6 @@ export class Allergies {
   }
 
   allergicTo(allergen) {
-    // console.log(this.binaryScore[allergyArr.findIndex(allergen)]);
     if(this.binaryScore[allergyArr.indexOf(allergen)] == "1") {
       return true;
     } else {
