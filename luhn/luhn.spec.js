@@ -9,31 +9,31 @@ describe('Luhn', () => {
     expect(valid('0')).toEqual(false);
   });
 
-  xtest('a simple valid SIN that remains valid if reversed', () => {
+  test('a simple valid SIN that remains valid if reversed', () => {
     expect(valid('059')).toEqual(true);
   });
 
-  xtest('a simple valid SIN that becomes invalid if reversed', () => {
+  test('a simple valid SIN that becomes invalid if reversed', () => {
     expect(valid('59')).toEqual(true);
   });
 
-  xtest('a valid Canadian SIN', () => {
+  test('a valid Canadian SIN', () => {
     expect(valid('055 444 285')).toEqual(true);
   });
 
-  xtest('invalid Canadian SIN', () => {
+  test('invalid Canadian SIN', () => {
     expect(valid('055 444 286')).toEqual(false);
   });
 
-  xtest('invalid credit card', () => {
+  test('invalid credit card', () => {
     expect(valid('8273 1232 7352 0569')).toEqual(false);
   });
 
-  xtest('valid number with an even number of digits', () => {
+  test('valid number with an even number of digits', () => {
     expect(valid('095 245 88')).toEqual(true);
   });
 
-  xtest('valid number with an odd number of spaces', () => {
+  test('valid number with an odd number of spaces', () => {
     expect(valid('234 567 891 234')).toEqual(true);
   });
 
@@ -57,7 +57,7 @@ describe('Luhn', () => {
     expect(valid('0000 0')).toEqual(true);
   });
 
-  xtest('input digit 9 is correctly converted to output digit 9', () => {
+  test('input digit 9 is correctly converted to output digit 9', () => {
     expect(valid('091')).toEqual(true);
   });
 
