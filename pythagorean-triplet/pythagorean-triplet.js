@@ -21,7 +21,20 @@ export class Triplet {
     }
   }
 
-  static where() {
-    throw new Error("Remove this statement and implement this function");
+  static where(constraints) {
+    let allTrips = [];
+    const {maxFactor, minFactor = 3, sum} = constraints;
+    for(let i = minFactor; i <= maxFactor; i++) {
+      for(let j = i + 1; j <= maxFactor; j++) {
+        let k = Math.sqrt(i**2 + j**2);
+        if(Number.isInteger(k) && k <= maxFactor) {
+          let myTrip = new Triplet(i,j,k);
+          if((sum && myTrip.sum() == sum) || !sum) {
+            allTrips.push(myTrip);
+          }
+        }
+      }
+    }
+    return allTrips;
   }
 }
