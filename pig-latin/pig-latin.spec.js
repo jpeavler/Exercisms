@@ -96,7 +96,7 @@ describe('Pig Latin', () => {
   });
 
   describe('phrases are translated', () => {
-    xtest('a whole phrase', () => {
+    test('a whole phrase', () => {
       expect(translator.translate('quick fast run')).toEqual('ickquay astfay unray');
     });
   });
