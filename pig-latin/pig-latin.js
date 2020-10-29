@@ -17,7 +17,9 @@ export class translator {
         }
       }
     });
-    if(startsVowel) {
+    if((str[0] === "y" && str[1] === "t") || (str[0] === "x" && str[1] == "r")) {
+      result = result + "ay";
+    }else if(startsVowel) {
       result = result + "ay";
     } else if(startsConsCluster > -1) {
       result = result.replace(clusters[startsConsCluster], "").concat(clusters[startsConsCluster], "ay");

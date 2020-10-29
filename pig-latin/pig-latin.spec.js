@@ -76,7 +76,7 @@ describe('Pig Latin', () => {
       expect(translator.translate('yttria')).toEqual('yttriaay');
     });
 
-    xtest('word beginning with xr', () => {
+    test('word beginning with xr', () => {
       expect(translator.translate('xray')).toEqual('xrayay');
     });
   });
